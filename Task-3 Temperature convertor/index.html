@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        * {
+            margin: 0px;
+            
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: #d8e3e7;
+        }
+        h1{
+            color: #9e0000;
+            font-size: 40px;
+           
+        }
+        .Temperature-convertor{
+            display: flex;
+            flex-direction: column;
+            gap: 70px;
+            margin-top: 100px;
+        }
+        #maincontainer {
+            position: relative;
+            margin: 0px 350px;
+            background-color: #9e0000;
+            border: 2px solid black;
+        }
+
+        #title {
+            padding: 30px;
+        }
+
+        #c {
+            margin-top: 20px;
+           
+        }
+
+        #f {
+            margin-left: 20px;
+        }
+
+        #btn {
+            background-color: black;
+            color: white;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        #ans {
+            font-size: 50px;
+            color: #d8e3e7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Temperature-convertor">
+    <div class="heading">
+        <h1>Temperature convertor</h1>
+    </div>
+    <div id="maincontainer">
+        <h2 id="title">Please Enter the Temperature you'd Like to Convert</h2>
+        <form action="" name="temp" onsubmit="caltemp(); return false">
+            <input type="text" name="number" class="num"><br>
+            <input type="radio" name="degree" value="Celsius" id="c">Celsius
+            <input type="radio" name="degree" value="Fahrenheit" id="f">Fahrenheit <br>
+            <button id="btn">Submit</button>
+        </form>
+        <h4 id="ans"></h4>
+    </div>
+</div>
+    <script>
+        function caltemp() {
+            let val = document.forms['temp']["number"].value;
+            let degree = document.forms['temp']["degree"].value;
+            let sol;
+            if (degree == "Celsius") {
+                sol = val * 1.8 + 32;
+                document.getElementById('ans').innerText = sol +"°F";
+                console.log("done");
+            } else{
+                sol = (val - 32) / 1.8;
+                document.getElementById('ans').innerText = sol +"°C" ;
+                console.log("not done");
+            }
+        }
+    </script>
+</body>
+
+</html>
